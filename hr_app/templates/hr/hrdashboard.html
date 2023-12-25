@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Girish-Job portal System</title>
+</head>
+<body>
+<div class="container mt-5">
+    {% include 'hr/navbar.html' %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>JOB ID</th>
+                <th>CREATED USER</th>
+                <th>TITLE</th>
+                <th>CITY</th>
+                <th>COMPANY</th>
+                <th>SALARY(Min)</th>
+                <th>SALARY(MAX)</th>
+                <th>APPLIED COUNT</th>
+                <th>LAST DATE</th>
+                <!-- Add other headers for additional fields -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.user }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.city }}</td>
+                    <td>{{ item.company_name }}</td>
+                    <td>{{ item.salary_rannge_min }}</td>
+                    <td>{{ item.salary_rannge_max }}</td>
+                    <td>{{ item.applied_count }}</td>
+                    <td>{{ item.last_apply_date }}</td>                   
+                    <!-- Add other cells for additional fields -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

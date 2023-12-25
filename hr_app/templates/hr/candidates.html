@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Girish-Job Portal System</title>
+    </head>
+<body>
+
+<!-- your_template.html -->
+
+<div class="container mt-5">
+    {% include 'hr/navbar.html' %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>JOBID</th>
+                <th>USER</th>
+                <th>JOB</th>
+                <th>YEAR PASSED OUT</th>
+                <th>EXPERIENCE</th>
+                <th>RESUME</th>
+                <th>STATUS</th>                                       
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidate in all_candidates_data %}
+                <tr>
+                    <td>{{ all_jobposts_data.id }}</td>
+                    <td>{{ candidate.user }}</td>
+                    <td>{{ candidate.job }}</td>
+                    <td>{{ candidate.year_passed_out }}</td>
+                    <td>{{ candidate.experience }}</td>
+                    <td><a href="{{ candidate.resume.url }}" target="_blank">{{ candidate.user }}-Resume</a></td>
+                    <td>{{ candidate.status }}</td>    
+                   <!-- <td>
+                        <form action="{% url 'selected_candidates' %}" method="post">
+                            {% csrf_token %}
+                            <input type="number" name="candidateid" value="{{candidate.id}}" hidden>
+                            <input type="number" name="jobpostid" value="{{jobpost.id}}" hidden>
+                            <button class="accept-button" type="submit">Accept</button>
+                        </form>
+                        <hr>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <button class="reject-button">Reject</button>
+                        </form>                        
+                    </td>                  -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wyq0S7+K1tZkhKvC5e2d4GuqD5dPnfcIrm" crossorigin="anonymous"></script>
+
+</body>
+</html>
