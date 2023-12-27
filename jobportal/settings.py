@@ -28,7 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = True  # Make sure this is set if using HTTPS
 CSRF_COOKIE_SAMESITE = 'Lax'  # or 'Strict' depending on your requirements
-CORS_ALLOW_ALL_ORIGINS =True
+#CORS_ALLOW_ALL_ORIGINS =True
+CORS_ALLOWED_ORIGINS = [
+    "https://web-production-2b701.up.railway.app",
+    # Add other allowed origins as needed
+]
 
 
 
